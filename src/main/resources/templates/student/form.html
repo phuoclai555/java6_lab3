@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/layout/layout::dynamic(~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/student/save" method="post" th:object="${sv}">
+        <label>
+            <input th:field="*{email}" placeholder="Email Address?">
+        </label>
+        <i th:errors="*{email}"></i><br>
+        <label>
+            <input th:field="*{fullname}" placeholder="Full Name?">
+        </label>
+        <i th:errors="*{fullname}"></i><br>
+        <label>
+            <input th:field="*{marks}" placeholder="Average Marks?">
+        </label>
+        <i th:errors="*{marks}"></i><br>
+        <label>
+            <input th:field="*{gender}" th:value="true" type="radio">
+        </label> Nam
+        <label>
+            <input th:field="*{gender}" th:value="false" type="radio">
+        </label> Nữ
+       <br> <i th:errors="*{gender}"></i><br>
+        <label>
+            <select th:field="*{country}">
+                    <option value="">Nationality?</option>
+                    <option th:each="entry:${countries}" th:value="${entry.key}" th:text="${entry.value}"></option>
+            </select>
+        </label>
+        <i th:errors="*{country}"></i>
+        <br>
+        <button>Save</button>
+    </form>
+</body>
+</html>

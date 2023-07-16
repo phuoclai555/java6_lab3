@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    th:fragment="dynamic(view)">
+<head>
+    <meta charset="UTF-8">
+    <title>Tổ chức layout</title>
+</head>
+<body>
+      <header>
+        <img th:src="@{/images/FPTpolyLogo.jpg}" style="width: 150px">
+      </header>
+      <hr>
+      <nav th:insert="~{/layout/menu.html::navbar}"></nav>
+      <hr>
+      <main th:replace="${view}"></main>
+      <hr>
+      <hr>
+      <hr>
+      <footer> FPT Polytechnic &copy; 2023. All right reserved</footer>
+</body>
+</html>
